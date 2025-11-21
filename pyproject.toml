@@ -1,0 +1,16 @@
+        [build-system]
+        requires = ["setuptools>=61.0", "wheel"]
+        build-backend = "setuptools.build_meta"
+
+        [project]
+        name = "ssclient"
+        version = "0.1.0"
+        requires-python = ">=3.8"
+        dependencies = [
+            "async-timeout>=3.0.1",
+            "aiohttp>=3.7.2",
+            "certifi>=2020.12.5",
+        ]
+
+        [options.packages.find]
+        where = ["src"] # If your package source is in a 'src' directory
