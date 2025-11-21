@@ -27,11 +27,11 @@ class SSClientFactory:
     })
 
     @staticmethod
-    def get_host_by_apikey(cls, apikey: str) -> Optional[str]:
+    def get_host_by_apikey(apikey: str) -> Optional[str]:
         partner_code = apikey[:2].lower()
-        return cls.HOSTS_MAP.get(partner_code)
+        return SSClientFactory.HOSTS_MAP.get(partner_code)
 
     @staticmethod
-    def create(cls, apikey: str) -> SSClient:
-        host = cls.get_host_by_apikey(apikey)
+    def create(apikey: str) -> SSClient:
+        host = SSClientFactory.get_host_by_apikey(apikey)
         return SSClient(HttpClient(host, apikey))
